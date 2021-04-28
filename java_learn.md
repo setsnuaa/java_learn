@@ -1,3 +1,5 @@
+[toc]
+
 # javaSE
 
 ## 第一章 入门
@@ -135,5 +137,61 @@ public String(byte[] array);
 
 //一种直接创建
 String str4="hello world";
+```
+
+#### 3.3.6 static关键字
+
+若成员变量使用static关键字，则该变量属于类，不属于对象自己，多个对象共享同一变量。
+
+```java
+public class Student{
+    static{
+        System.out.println("静态代码块执行");//静态代码块执行一次，创建多个对象也只执行一次
+    }
+    public Student(){
+        System.out.println("构造方法执行");
+   }
+}
+```
+
+### 3.4 继承
+
+this：自己
+
+super：父类
+
+```java
+System.out.println("子类的num："+num);
+System.out.println("子类的num："+this.num);
+System.out.println("父类的num："+super.num);
+```
+
+#### 3.4.1 方法重写
+
+注意重写与重载的区别：
+
+重写：方法名称一样，参数一样
+
+重载：方法名称一样，参数不一样
+
+eg.老手机有显示号码和姓名功能，新手机有显示号码、姓名、头像功能
+
+```java
+public class OldPhone {
+    public void show(){
+        System.out.println("显示号码");
+        System.out.println("显示姓名");
+    }
+}
+```
+
+```java
+public class NewPhone extends OldPhone{
+    @Override
+    public void show() {
+        super.method();//调用父类方法
+        System.out.println("显示头像");
+    }
+}
 ```
 
