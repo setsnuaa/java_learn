@@ -195,3 +195,24 @@ public class NewPhone extends OldPhone{
 }
 ```
 
+### 3.5 接口
+
+#### 3.5.1 default方法
+
+接口实现类必须实现接口的所有方法，如果接口添加了方法，接口实现类也必须实现对应的方法，使用default（public default）可以在接口中实现方法，接口实现类不需要实现该方法。
+
+#### 3.5.2 static方法
+
+通过接口名称调用，不能通过接口实现类调用
+
+比如MyInterfaceStatic有一个方法static void method，有一个接口实现类MyInerfaceStaticImpl，
+
+```java
+MyInterfaceStatic.method();//正确
+
+MyInerfaceStaticImpl a=new MyInerfaceStaticImpl();
+a.method();//错误
+```
+
+#### 3.5.3 privete方法
+
